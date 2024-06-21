@@ -12,7 +12,7 @@ public class Sword : IWeapon
     public decimal Damage { get; set; }
     public int MsDelay { get; set; }
     public DateTime lastAttack { get; set; }
-    
+
     public Sword(decimal damage, int msDelay)
     {
         Damage = damage;

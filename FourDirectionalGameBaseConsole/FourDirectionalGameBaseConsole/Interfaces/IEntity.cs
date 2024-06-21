@@ -12,6 +12,7 @@ public interface IEntity
     public int X { get; set; }
     public int Y { get; set; }
     public decimal Health { get; set; }
+    public decimal MaxHealth { get; set; }
     public decimal Resistance { get; set; }
     
     public IWeapon Weapon { get; set; }

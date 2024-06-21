@@ -13,10 +13,11 @@ public class Player : IEntity
     public int Y { get; set; }
     public decimal Health { get; set; }
     public decimal Resistance { get; set; }
+    public decimal MaxHealth { get; set; }
     
     public IWeapon Weapon { get; set; }
     
-    public Player(string name, int x, int y, decimal health, decimal resistance, IWeapon weapon)
+    public Player(string name, int x, int y, decimal health, decimal resistance, IWeapon weapon, decimal maxHealth)
     {
         Name = name;
         X = x;
@@ -24,6 +25,7 @@ public class Player : IEntity
         Health = health;
         Resistance = resistance;
         Weapon = weapon;
+        MaxHealth = maxHealth;
     }
 
     public void TakeDamage(decimal damage)
