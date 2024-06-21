@@ -16,6 +16,9 @@ public class Player : IEntity
     public decimal MaxHealth { get; set; }
     
     public IWeapon Weapon { get; set; }
+    public char Symbol { get; set; } = 'P';
+    public ConsoleColor Color { get; set; } = ConsoleColor.Black;
+    
     
     public Player(string name, int x, int y, decimal health, decimal resistance, IWeapon weapon, decimal maxHealth)
     {

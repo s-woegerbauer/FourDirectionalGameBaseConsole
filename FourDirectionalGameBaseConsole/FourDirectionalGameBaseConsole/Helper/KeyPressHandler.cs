@@ -4,6 +4,7 @@ public class KeyPressHandler
 {
     private readonly List<Action> _keyPressActions;
     private readonly List<ConsoleKey> _keyPresses;
+    private bool _running = true;
     
     public KeyPressHandler(List<Action> keyPressActions, List<ConsoleKey> keyPresses)
     {
@@ -14,6 +15,8 @@ public class KeyPressHandler
         {
             while (true)
             {
+                if (!_running){continue;}
+                
                 if (Console.KeyAvailable)
                 {
                     HandleKeyPress(Console.ReadKey(true).Key);
@@ -22,6 +25,16 @@ public class KeyPressHandler
                 Task.Delay(100).Wait();
             }
         });
+    }
+    
+    public void Stop()
+    {
+        _running = false;
+    }
+    
+    public void Continue()
+    {
+        _running = true;
     }
     
     private void HandleKeyPress(ConsoleKey key)

@@ -150,28 +150,6 @@ public class Map
             sw.WriteLine(line);
         }
     }
-    
-    private void FillWithFloor()
-    {
-        for (int x = 0; x < Width; x++)
-        {
-            for (int y = 0; y < Height; y++)
-            {
-                Blocks[x, y] = new Floor(x, y, this);
-            }
-        }
-    }
-    
-    private void FillWithWall()
-    {
-        for (int x = 0; x < Width; x++)
-        {
-            for (int y = 0; y < Height; y++)
-            {
-                Blocks[x, y] = new Wall(x, y, this);
-            }
-        }
-    }
 
     private void Init()
     {
@@ -195,22 +173,17 @@ public class Map
         get => Blocks[x, y];
         set => Blocks[x, y] = value;
     }
-    
-    public void SpawnEntity(IEntity entity)
-    {
-        Entities.Add(entity);
-    }
-    
-    public void RemoveEntity(IEntity entity)
-    {
-        Entities.Remove(entity);
-    }
 
     public void Render()
     {
         foreach (var block in Blocks)
         {
             block.Draw();
+        }
+
+        foreach (var entity in Entities)
+        {
+            entity.Draw();
         }
     }
 }

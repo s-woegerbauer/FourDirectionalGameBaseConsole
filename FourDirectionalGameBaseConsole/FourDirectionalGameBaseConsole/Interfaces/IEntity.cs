@@ -14,11 +14,16 @@ public interface IEntity
     public decimal Health { get; set; }
     public decimal MaxHealth { get; set; }
     public decimal Resistance { get; set; }
+    public char Symbol { get; set; }
+    public ConsoleColor Color { get; set; }
     
     public IWeapon Weapon { get; set; }
 
     public bool Move(Direction direction, Map map)
     {
+        bool returner = true;
+        map[X, Y].Draw();
+        
         switch (direction)
         {
             case Direction.Up:
@@ -28,42 +33,44 @@ public interface IEntity
                 }
                 else
                 {
-                    return false;
+                    returner = false;
                 }
                 break;
             case Direction.Right:
-                if (X < map.Width - 1  && map[X, Y - 1] is IWalkable)
+                if (X < map.Width - 1  && map[X + 1, Y] is IWalkable)
                 {
                     X++;
                 }
                 else
                 {
-                    return false;
+                    returner = false;
                 }
                 break;
             case Direction.Down:
-                if (Y < map.Height - 1  && map[X, Y - 1] is IWalkable)
+                if (Y < map.Height - 1 && map[X, Y + 1] is IWalkable)
                 {
                     Y++;
                 }
                 else
                 {
-                    return false;
+                    returner = false;
                 }
                 break;
             case Direction.Left:
-                if (X > 0  && map[X, Y - 1] is IWalkable)
+                if (X > 0 && map[X - 1, Y] is IWalkable)
                 {
                     X--;
                 }
                 else
                 {
-                    return false;
+                    returner = false;
                 }
                 break;
         }
+        
+        Draw();
 
-        return true;
+        return returner;
     }
 
     public void TakeDamage(decimal damage)
@@ -82,4 +89,12 @@ public interface IEntity
     }
     
     public void Die();
+
+    public void Draw()
+    {
+        Console.SetCursorPosition(X, Y);
+        Console.ForegroundColor = Color;
+        Console.Write(Symbol);
+        Console.ForegroundColor = ConsoleColor.White;
+    }
 }
