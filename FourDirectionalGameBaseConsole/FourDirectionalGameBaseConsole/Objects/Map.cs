@@ -64,7 +64,7 @@ public class Map
     public static Map Create(int width, int height, string mapName, string playerName)
     {
         Map map = new Map(new List<IEntity>(), width, height);
-        map.Entities.Add(new Player(playerName, 1, 1, 100, 0, new Sword(10, 500), 100));
+        map.Entities.Add(new Player(playerName, 1, 1, 100, 0, new Sword(10, 1000), 100));
 
         // Create base directory for saves if not available
         if (!Directory.Exists(Directory.GetCurrentDirectory() + "/Saves"))
@@ -184,6 +184,19 @@ public class Map
         foreach (var entity in Entities)
         {
             entity.Draw();
+        }
+    }
+
+    public void ResetPixel(int x, int y)
+    {
+        Console.SetCursorPosition(x, y);
+        this[x,y].Draw();
+        foreach(var entity in Entities)
+        {
+            if(entity.X == x && entity.Y == y)
+            {
+                entity.Draw();
+            }
         }
     }
 }

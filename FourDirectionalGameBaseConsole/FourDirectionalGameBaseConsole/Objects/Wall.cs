@@ -8,10 +8,7 @@ public class Wall : IBlock
     public string TexturePath { get; set; }
     public int X { get; set; }
     public int Y { get; set; }
-    
     public char Symbol { get; set; } = '#';
-    public ConsoleColor Color { get; set; } = ConsoleColor.Black;
-    
     public Wall(int x, int y, Map map)
     {
         X = x;

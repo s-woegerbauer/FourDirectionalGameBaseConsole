@@ -9,9 +9,6 @@ public class Floor : IWalkable
     public int X { get; set; }
     public int Y { get; set; }
     public char Symbol { get; set; } = ' ';
-    public ConsoleColor Color { get; set; } = ConsoleColor.White;
-
-
     public Floor(int x, int y, Map map)
     {
         X = x;

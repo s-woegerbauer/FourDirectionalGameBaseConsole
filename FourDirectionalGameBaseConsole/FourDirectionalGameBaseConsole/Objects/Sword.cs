@@ -11,17 +11,24 @@ public class Sword : IWeapon
     public const string Name = "Sword";
     public decimal Damage { get; set; }
     public int MsDelay { get; set; }
-    public DateTime lastAttack { get; set; }
+    public DateTime LastAttack { get; set; }
 
     public Sword(decimal damage, int msDelay)
     {
         Damage = damage;
         MsDelay = msDelay;
-        lastAttack = DateTime.Now;
+        LastAttack = DateTime.Now;
     }
 
     public void Attack(IEntity source, Direction direction, Map map)
     {
+        if(DateTime.Now - LastAttack < TimeSpan.FromMilliseconds(MsDelay))
+        {
+            return;
+        }
+        
+        LastAttack = DateTime.Now;
+        
         int targetX = source.X;
         int targetY = source.Y;
 
@@ -40,12 +47,21 @@ public class Sword : IWeapon
                 targetX++;
                 break;
         }
-        
+
         var targets = map.Entities.Where(e => e.X == targetX && e.Y == targetY).ToList();
-        
+
         foreach (var target in targets)
         {
             target.TakeDamage(Damage);
         }
+
+        Console.SetCursorPosition(targetX, targetY);
+        Console.Write('\u2694');
+
+        Task.Run(() =>
+        {
+            Thread.Sleep(500);
+            map.ResetPixel(targetX, targetY);
+        });
     }
 }
