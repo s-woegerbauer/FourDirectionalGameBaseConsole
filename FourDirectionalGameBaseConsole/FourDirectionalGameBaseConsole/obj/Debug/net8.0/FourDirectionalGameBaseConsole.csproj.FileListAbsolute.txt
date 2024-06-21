@@ -22,3 +22,4 @@ C:\Users\Simon\Documents\GitHub\FourDirectionalGameBaseConsole\FourDirectionalGa
 C:\Users\Simon\Documents\GitHub\FourDirectionalGameBaseConsole\FourDirectionalGameBaseConsole\FourDirectionalGameBaseConsole\bin\Debug\net8.0\SixLabors.ImageSharp.dll
 C:\Users\Simon\Documents\GitHub\FourDirectionalGameBaseConsole\FourDirectionalGameBaseConsole\FourDirectionalGameBaseConsole\bin\Debug\net8.0\Spectre.Console.dll
 C:\Users\Simon\Documents\GitHub\FourDirectionalGameBaseConsole\FourDirectionalGameBaseConsole\FourDirectionalGameBaseConsole\bin\Debug\net8.0\Spectre.Console.ImageSharp.dll
+C:\Users\Simon\Documents\GitHub\FourDirectionalGameBaseConsole\FourDirectionalGameBaseConsole\FourDirectionalGameBaseConsole\bin\Debug\net8.0\WindowsInput.dll
