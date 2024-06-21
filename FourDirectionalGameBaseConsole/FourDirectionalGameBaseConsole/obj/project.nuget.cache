@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "YpalTWRf6L1LEYbXZreYTdJXNxo+KvdShhHtsoxsZQ4b2V+SVnVeIyhKe1JCaWxkvcbJ93IIokvx77Z4Z1clMQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Simon\\Documents\\GitHub\\FourDirectionalGameBaseConsole\\FourDirectionalGameBaseConsole\\FourDirectionalGameBaseConsole\\FourDirectionalGameBaseConsole.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Simon\\.nuget\\packages\\microsoft.win32.systemevents\\9.0.0-preview.5.24306.7\\microsoft.win32.systemevents.9.0.0-preview.5.24306.7.nupkg.sha512",
+    "C:\\Users\\Simon\\.nuget\\packages\\sixlabors.imagesharp\\3.1.4\\sixlabors.imagesharp.3.1.4.nupkg.sha512",
+    "C:\\Users\\Simon\\.nuget\\packages\\spectre.console\\0.49.2-preview.0.7\\spectre.console.0.49.2-preview.0.7.nupkg.sha512",
+    "C:\\Users\\Simon\\.nuget\\packages\\spectre.console.imagesharp\\0.49.2-preview.0.7\\spectre.console.imagesharp.0.49.2-preview.0.7.nupkg.sha512",
+    "C:\\Users\\Simon\\.nuget\\packages\\system.drawing.common\\9.0.0-preview.5.24306.5\\system.drawing.common.9.0.0-preview.5.24306.5.nupkg.sha512"
+  ],
+  "logs": []
+}

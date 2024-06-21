@@ -1,0 +1,121 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "FourDirectionalGameBaseConsole/1.0.0": {
+        "dependencies": {
+          "Spectre.Console.ImageSharp": "0.49.2-preview.0.7",
+          "System.Drawing.Common": "9.0.0-preview.5.24306.5"
+        },
+        "runtime": {
+          "FourDirectionalGameBaseConsole.dll": {}
+        }
+      },
+      "Microsoft.Win32.SystemEvents/9.0.0-preview.5.24306.7": {
+        "runtime": {
+          "lib/net8.0/Microsoft.Win32.SystemEvents.dll": {
+            "assemblyVersion": "9.0.0.0",
+            "fileVersion": "9.0.24.30607"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/win/lib/net8.0/Microsoft.Win32.SystemEvents.dll": {
+            "rid": "win",
+            "assetType": "runtime",
+            "assemblyVersion": "9.0.0.0",
+            "fileVersion": "9.0.24.30607"
+          }
+        }
+      },
+      "SixLabors.ImageSharp/3.1.4": {
+        "runtime": {
+          "lib/net6.0/SixLabors.ImageSharp.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.1.4.0"
+          }
+        }
+      },
+      "Spectre.Console/0.49.2-preview.0.7": {
+        "runtime": {
+          "lib/net8.0/Spectre.Console.dll": {
+            "assemblyVersion": "0.0.0.0",
+            "fileVersion": "0.49.2.0"
+          }
+        }
+      },
+      "Spectre.Console.ImageSharp/0.49.2-preview.0.7": {
+        "dependencies": {
+          "SixLabors.ImageSharp": "3.1.4",
+          "Spectre.Console": "0.49.2-preview.0.7"
+        },
+        "runtime": {
+          "lib/net8.0/Spectre.Console.ImageSharp.dll": {
+            "assemblyVersion": "0.0.0.0",
+            "fileVersion": "0.49.2.0"
+          }
+        }
+      },
+      "System.Drawing.Common/9.0.0-preview.5.24306.5": {
+        "dependencies": {
+          "Microsoft.Win32.SystemEvents": "9.0.0-preview.5.24306.7"
+        },
+        "runtime": {
+          "lib/net8.0/System.Drawing.Common.dll": {
+            "assemblyVersion": "9.0.0.0",
+            "fileVersion": "9.0.24.30605"
+          },
+          "lib/net8.0/System.Private.Windows.Core.dll": {
+            "assemblyVersion": "9.0.0.0",
+            "fileVersion": "9.0.24.30605"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "FourDirectionalGameBaseConsole/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.Win32.SystemEvents/9.0.0-preview.5.24306.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-L+eN7hSngC+kgPNy7jzKedIj8NXH6bdiKN+dwWJytfUhTMbzyLqKV/pA9lGSWWwLoDGbawncERrgcK0HnnOA/Q==",
+      "path": "microsoft.win32.systemevents/9.0.0-preview.5.24306.7",
+      "hashPath": "microsoft.win32.systemevents.9.0.0-preview.5.24306.7.nupkg.sha512"
+    },
+    "SixLabors.ImageSharp/3.1.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-lFIdxgGDA5iYkUMRFOze7BGLcdpoLFbR+a20kc1W7NepvzU7ejtxtWOg9RvgG7kb9tBoJ3ONYOK6kLil/dgF1w==",
+      "path": "sixlabors.imagesharp/3.1.4",
+      "hashPath": "sixlabors.imagesharp.3.1.4.nupkg.sha512"
+    },
+    "Spectre.Console/0.49.2-preview.0.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-4UoVKjxLM3OJu+eU/xUcd2mKX6x++F8plPxkCaOKozoZOn4/46CaoO8TLZzkVQa3TTY4EJaopm00X0Hy/cSolQ==",
+      "path": "spectre.console/0.49.2-preview.0.7",
+      "hashPath": "spectre.console.0.49.2-preview.0.7.nupkg.sha512"
+    },
+    "Spectre.Console.ImageSharp/0.49.2-preview.0.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-9PuGqST0ldXcBQqvajsP/pxowmmCGdb4UwS+Bsr2rTZdS19FzMoUzQ5Z9s0W99tF1uJyvmHlYOZbP/xnm8C1OQ==",
+      "path": "spectre.console.imagesharp/0.49.2-preview.0.7",
+      "hashPath": "spectre.console.imagesharp.0.49.2-preview.0.7.nupkg.sha512"
+    },
+    "System.Drawing.Common/9.0.0-preview.5.24306.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-tPnVBXlBlBFH0YL4uhhp6WphjJG+8XpH9SuDNUWbfdMJ6Hab9DUJFUg/fOnTFlAS3SWyGIFGJ4vx9VGbLIlz2w==",
+      "path": "system.drawing.common/9.0.0-preview.5.24306.5",
+      "hashPath": "system.drawing.common.9.0.0-preview.5.24306.5.nupkg.sha512"
+    }
+  }
+}
