@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FourDirectionalGameBaseConsole")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+076b888226e56344f22a0bf471be219a4f99707c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ac07439064a98afa1ee7d2d3f80748aa5ad5e6df")]
 [assembly: System.Reflection.AssemblyProductAttribute("FourDirectionalGameBaseConsole")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FourDirectionalGameBaseConsole")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

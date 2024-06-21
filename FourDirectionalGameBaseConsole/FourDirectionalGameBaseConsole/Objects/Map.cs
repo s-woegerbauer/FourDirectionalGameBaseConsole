@@ -17,7 +17,7 @@ public class Map
     {
         Entities = entities;
         Blocks = new IBlock[width, height];
-        FillWithWall();
+        Init();
     }
 
     private void FromCsv(string filePath)
@@ -48,43 +48,56 @@ public class Map
             }
         }
     }
+
+    public static Map Read(string name)
+    {
+        // Read map file
+        Map map = new Map(new List<IEntity>(), 0, 0);
+        map.FromCsv(Directory.GetCurrentDirectory() + "/Saves/" + name + "/map.csv");
+        
+        // Read entities file
+        map.ReadEntities(Directory.GetCurrentDirectory() + "/Saves/" + name + "/entities.csv");
+
+        return map;
+    }
     
-    private static Map Create(int width, int height, string mapName, string playerName)
+    public static Map Create(int width, int height, string mapName, string playerName)
     {
         Map map = new Map(new List<IEntity>(), width, height);
         map.Entities.Add(new Player(playerName, 1, 1, 100, 0, new Sword(10, 500), 100));
 
         // Create base directory for saves if not available
-        if (!Directory.Exists(Directory.GetCurrentDirectory() + "Saves"))
+        if (!Directory.Exists(Directory.GetCurrentDirectory() + "/Saves"))
         {
-            Directory.CreateDirectory(Directory.GetCurrentDirectory() + "Saves");
+            Directory.CreateDirectory(Directory.GetCurrentDirectory() + "/Saves");
         }
         
-        // Create map directory
-        if (!Directory.Exists(Directory.GetCurrentDirectory() + "Saves/" + mapName))
+        // Create map directory if not available
+        if (!Directory.Exists(Directory.GetCurrentDirectory() + "/Saves/" + mapName))
         {
-            Directory.CreateDirectory(Directory.GetCurrentDirectory() + "Saves/" + mapName);
+            Directory.CreateDirectory(Directory.GetCurrentDirectory() + "/Saves/" + mapName);
         }
         
-        // Create map file
-        if (!File.Exists(Directory.GetCurrentDirectory() + "Saves/" + mapName + "/map.csv"))
+        // Create map file if not available
+        if (!File.Exists(Directory.GetCurrentDirectory() + "/Saves/" + mapName + "/map.csv"))
         {
-            File.Create(Directory.GetCurrentDirectory() + "Saves/" + mapName + "/map.csv");
-            map.FillWithFloor();
-            map.ToCsv(Directory.GetCurrentDirectory() + "Saves/" + mapName + "/map.csv");
+            using FileStream fs = File.Create(Directory.GetCurrentDirectory() + "/Saves/" + mapName + "/map.csv");
+            map.ToCsv(fs);
+            fs.Close();
         }
         
-        // Create entities file
-        if (!File.Exists(Directory.GetCurrentDirectory() + "Saves/" + mapName + "/entities.csv"))
+        // Create entities file if not available
+        if (!File.Exists(Directory.GetCurrentDirectory() + "/Saves/" + mapName + "/entities.csv"))
         {
-            File.Create(Directory.GetCurrentDirectory() + "Saves/" + mapName + "/entities.csv");
-            map.WriteEntities(Directory.GetCurrentDirectory() + "Saves/" + mapName + "/entities.csv");
+            using FileStream fs = File.Create(Directory.GetCurrentDirectory() + "/Saves/" + mapName + "/entities.csv");
+            map.WriteEntities(fs);
+            fs.Close();
         }
 
         return map;
     }
     
-    private void ToCsv(string filePath)
+    private void ToCsv(FileStream fs)
     {
         List<string> output = new List<string>();
         for (int y = 0; y < Height; y++)
@@ -96,7 +109,12 @@ public class Map
             }
             output.Add(line);
         }
-        File.WriteAllLines(filePath, output);
+
+        using StreamWriter sw = new StreamWriter(fs);
+        foreach (string line in output)
+        {
+            sw.WriteLine(line);
+        }
     }
 
     private void ReadEntities(string filePath)
@@ -117,7 +135,7 @@ public class Map
         }
     }
     
-    private void WriteEntities(string filePath)
+    private void WriteEntities(FileStream fs)
     {
         List<string> output = new List<string>();
         foreach (var entity in Entities)
@@ -125,7 +143,12 @@ public class Map
             string line = entity.GetType().Name + ";" + entity.X + ";" + entity.Y + ";" + entity.Health + ";" + entity.MaxHealth + ";" + entity.Weapon.ToString();
             output.Add(line);
         }
-        File.WriteAllLines(filePath, output);
+        
+        using StreamWriter sw = new StreamWriter(fs);
+        foreach (string line in output)
+        {
+            sw.WriteLine(line);
+        }
     }
     
     private void FillWithFloor()
@@ -146,6 +169,23 @@ public class Map
             for (int y = 0; y < Height; y++)
             {
                 Blocks[x, y] = new Wall(x, y, this);
+            }
+        }
+    }
+
+    private void Init()
+    {
+        for(int i = 0; i < Width; i++)
+        {
+            for(int j = 0; j < Height; j++)
+            {
+                if(i < 1 || j < 1 || i >= Width - 1 || j >= Height - 1)
+                {
+                    Blocks[i, j] = new Wall(i, j, this);
+                    continue;
+                }
+                
+                Blocks[i, j] = new Floor(i, j, this);
             }
         }
     }

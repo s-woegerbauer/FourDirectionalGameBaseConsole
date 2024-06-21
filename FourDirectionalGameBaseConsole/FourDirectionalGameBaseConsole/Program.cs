@@ -11,13 +11,7 @@ public static class Program
     public static void Main(string[] args)
     {
         MaximizeWindow.Execute();
-        
-        
-        Console.ReadKey();
-        List<IEntity> entities = new List<IEntity>();
-        entities.Add(new Player("Player", 1, 1, 100, 1, new Sword(20, 500)));
-        Map map = new Map(entities, 10, 10);
-        
+        var map = Map.Create(10, 10, "test", "p1");
         map.Render();
     }
 }
